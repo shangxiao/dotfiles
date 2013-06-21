@@ -19,3 +19,7 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 autocmd BufWritePost .vimrc source %
+
+if has('mouse')
+	set mouse=a
+endif
