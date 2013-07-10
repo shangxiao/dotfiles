@@ -41,3 +41,10 @@ Thumbs.db
 # IDE directories & files #
 ###########################
 .idea
+
+# SQLite database files #
+#########################
+.sqlite
+.sqlite3
+.db
+.db3
