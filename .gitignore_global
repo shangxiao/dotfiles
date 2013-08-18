@@ -48,3 +48,11 @@ Thumbs.db
 .sqlite3
 .db
 .db3
+
+# Java #
+########
+.classpath
+.gradle
+.project
+.settings
+gwt-unitCache
