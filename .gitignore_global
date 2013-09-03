@@ -41,6 +41,7 @@ Thumbs.db
 # IDE directories & files #
 ###########################
 .idea
+.iml
 
 # SQLite database files #
 #########################
