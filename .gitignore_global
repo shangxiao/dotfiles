@@ -57,3 +57,11 @@ Thumbs.db
 .project
 .settings
 gwt-unitCache
+
+# Bower #
+#########
+bower_components
+
+# Sass #
+########
+.sass-cache
