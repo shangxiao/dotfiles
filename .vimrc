@@ -1,3 +1,6 @@
+
+autocmd! bufwritepost .vimrc source %
+
 " vim.pathogen
 execute pathogen#infect()
 
@@ -8,17 +11,19 @@ set softtabstop=4
 set ai
 syntax on
 set hlsearch
+set incsearch
 set showcmd
 set showmatch
 set nostartofline
 set ruler
-set bg=dark
-set so=7
+set bg=light
+set so=5
 set number
 set nowrap
 set mouse=a
 
 autocmd Filetype javascript setlocal sw=2 ts=2 sts=2
+autocmd Filetype coffee setlocal sw=2 ts=2 sts=2
 autocmd Filetype html setlocal sw=1 ts=1 sts=1
 
 " disable the annoying paren matching highlighting
@@ -28,11 +33,14 @@ set nobackup
 set nowb
 set noswapfile
 
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python autocmd BufWritePre <buffer> call Trim()
+
+map <F8> Oimport ipdb; ipdb.set_trace()
 
 :function Trim()
 " remove trailing whitespace
-:%s/\s\+$//
+:%s/\s\+$//ge
 " Remove empty lines
 ":g/^$/d
 :endfunction
