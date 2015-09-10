@@ -36,7 +36,10 @@ set noswapfile
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python autocmd BufWritePre <buffer> call Trim()
 
+map <F2> :NERDTreeToggle<CR>
 map <F8> Oimport ipdb; ipdb.set_trace()
+
+set pastetoggle=<F3>
 
 :function Trim()
 " remove trailing whitespace
