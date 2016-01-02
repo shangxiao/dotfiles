@@ -38,6 +38,8 @@ autocmd FileType python autocmd BufWritePre <buffer> call Trim()
 
 map <F2> :NERDTreeToggle<CR>
 map <F8> Oimport ipdb; ipdb.set_trace()
+map <F4> :set nonumber!<CR>
+map <F5> :%!isort -<CR>
 
 set pastetoggle=<F3>
 
