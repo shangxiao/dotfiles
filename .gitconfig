@@ -25,6 +25,7 @@
     pom = push origin master
     br = branch
     pr = pull --rebase
+    forcepush = push --force-with-lease
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
