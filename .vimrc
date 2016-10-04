@@ -21,6 +21,13 @@ set so=5
 set number
 set nowrap
 set mouse=a
+set backspace=2
+
+" nice default, as this works well for a lot of things: python, json ...
+set foldmethod=indent
+set foldlevel=99
+
+set tags=./tags;$HOME
 
 autocmd Filetype javascript setlocal sw=2 ts=2 sts=2
 autocmd Filetype coffee setlocal sw=2 ts=2 sts=2
@@ -33,22 +40,43 @@ set nobackup
 set nowb
 set noswapfile
 
-autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-autocmd FileType python autocmd BufWritePre <buffer> call Trim()
-
 map <F2> :NERDTreeToggle<CR>
-map <F8> Oimport ipdb; ipdb.set_trace()
-map <F4> :set nonumber!<CR>
-map <F5> :%!isort -<CR>
-
 set pastetoggle=<F3>
+map <F4> :set nonumber!<CR>
+map <C-C> :q<CR>
 
-:function Trim()
+nnoremap <space> za
+vnoremap <space> zf
+
+" The second line to make arrow keys still work
+" http://stackoverflow.com/a/1037182/739106
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
+
+function! PythonSetup() 
+    map <F5> :%!isort -<CR>:w<CR>
+    map <F6> :Shell flake8 %<CR>
+    "map <F7> :Shell ./manage.py test %<CR>
+    map <F7> :call Pymodule()<CR>
+    map <F8> Oimport ipdb; ipdb.set_trace()<ESC>:w<CR>
+
+    set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd BufWritePre <buffer> call Trim()
+    set foldmethod=indent
+endfunction
+
+autocmd FileType python call PythonSetup()
+
+" previously term=standout ctermfg=4 ctermbg=7 guifg=DarkBlue guibg=LightGrey
+hi Folded ctermfg=none ctermbg=none
+
+
+function! Trim()
 " remove trailing whitespace
 :%s/\s\+$//ge
 " Remove empty lines
 ":g/^$/d
-:endfunction
+endfunction
 
 " change cursor iterm
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -59,3 +87,32 @@ let NERDTreeIgnore=['\.pyc$']
 if filereadable(".lvimrc")
     source .lvimrc
 endif
+
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  call setline(1, 'You entered:    ' . a:cmdline)
+  call setline(2, 'Expanded Form:  ' .expanded_cmdline)
+  call setline(3,substitute(getline(2),'.','=','g'))
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction
+
+function! Pymodule()
+  let module_name = substitute(substitute(@%, "/", ".", "g"), ".py", "", "g")
+  let function_name =  expand("<cword>")
+  execute "normal! ?class\<cr>W"
+  let class_name = expand("<cword>")
+  execute "normal! \<C-O>"
+  echom module_name . "." . class_name . "." . function_name
+endfunction
