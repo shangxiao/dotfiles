@@ -22,6 +22,7 @@ set number
 set nowrap
 set mouse=a
 set backspace=2
+set nf=alpha
 
 " nice default, as this works well for a lot of things: python, json ...
 set foldmethod=indent
@@ -43,6 +44,8 @@ set noswapfile
 map <F2> :NERDTreeToggle<CR>
 set pastetoggle=<F3>
 map <F4> :set nonumber!<CR>
+map <F9> :au! TextChanged,TextChangedI <buffer> write<CR>
+map <F10> :au! TextChanged,TextChangedI <buffer><CR>
 map <C-C> :q<CR>
 
 nnoremap <space> za
@@ -60,7 +63,8 @@ function! PythonSetup()
     map <F7> :call Pymodule()<CR>
     map <F8> Oimport ipdb; ipdb.set_trace()<ESC>:w<CR>
 
-    set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+    inoremap # X#
     autocmd BufWritePre <buffer> call Trim()
     set foldmethod=indent
 endfunction
