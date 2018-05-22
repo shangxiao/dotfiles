@@ -42,6 +42,7 @@ Thumbs.db
 ###########################
 .idea
 .iml
+tags
 
 # SQLite database files #
 #########################
@@ -73,6 +74,7 @@ staticfiles
 # Python #
 ##########
 env
+site-packages
 
 # JavaScript #
 ##############
