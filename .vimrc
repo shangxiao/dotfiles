@@ -1,9 +1,6 @@
 
 autocmd! bufwritepost .vimrc source %
 
-" vim.pathogen
-execute pathogen#infect()
-
 set et
 set sw=4
 set ts=4
