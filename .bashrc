@@ -7,6 +7,7 @@ alias serve='python -m SimpleHTTPServer'
 alias activate=". env/bin/activate"
 alias pom="git pom"
 alias install="npm install --save-dev"
+alias link-site-packages="find .direnv -type d -name site-packages -exec ln -s \{\} ./site-packages \;"
 
 export PYTHONDONTWRITEBYTECODE=1
 export HISTCONTROL=ignoredups
