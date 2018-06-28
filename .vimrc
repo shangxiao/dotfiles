@@ -1,5 +1,8 @@
+let mapleader = ','
 
 autocmd! bufwritepost .vimrc source %
+" map <leader>, to open .vimrc (analogous to using command-, for preferences)
+nnoremap <leader>, :vsplit $MYVIMRC<cr>
 
 set et
 set sw=4
