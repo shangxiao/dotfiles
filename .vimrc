@@ -34,6 +34,11 @@ autocmd Filetype javascript setlocal sw=2 ts=2 sts=2
 autocmd Filetype coffee setlocal sw=2 ts=2 sts=2
 autocmd Filetype html setlocal sw=1 ts=1 sts=1
 
+autocmd Filetype javascript setlocal makeprg=npx\ eslint\ --format\ unix
+autocmd Filetype python setlocal makeprg=flake8
+autocmd QuickFixCmdPost [^l]* cwindow
+map <F6> :make %<CR>
+
 " disable the annoying paren matching highlighting
 let loaded_matchparen = 1 
 
@@ -47,6 +52,7 @@ set pastetoggle=<F3>
 map <F4> :set nonumber!<CR>
 map <F9> :au! TextChanged,TextChangedI <buffer> write<CR>
 map <F10> :au! TextChanged,TextChangedI <buffer><CR>
+map <script> <silent> <F11> :call ToggleQuickfixList()<CR>
 map <C-C> :q<CR>
 
 nnoremap <space> za
