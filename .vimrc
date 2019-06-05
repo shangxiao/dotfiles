@@ -1,3 +1,6 @@
+set nomodeline
+set modelines=0
+
 let mapleader = ','
 
 autocmd! bufwritepost .vimrc source %
