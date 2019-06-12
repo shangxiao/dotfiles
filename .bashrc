@@ -11,6 +11,7 @@ alias link-site-packages="find .direnv -type d -name site-packages -exec ln -s \
 
 export PYTHONDONTWRITEBYTECODE=1
 export HISTCONTROL=ignoredups
+export GREP_OPTIONS='--exclude=tags -p'  # not sure why need to specify -p as it's supposed to be the default?
 
 if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
 . `brew --prefix`/etc/bash_completion.d/git-completion.bash
