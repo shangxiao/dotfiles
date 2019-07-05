@@ -9,6 +9,10 @@ alias pom="git pom"
 alias install="npm install --save-dev"
 alias link-site-packages="find .direnv -type d -name site-packages -exec ln -s \{\} ./site-packages \;"
 
+function watch() {
+    fswatch --exclude .pytest_cache . | xargs -n1 -I \{\} sh -c "clear ;  $* ;"
+}
+
 export PYTHONDONTWRITEBYTECODE=1
 export HISTCONTROL=ignoredups
 export GREP_OPTIONS='--exclude=tags -p'  # not sure why need to specify -p as it's supposed to be the default?
