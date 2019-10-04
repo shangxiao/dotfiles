@@ -55,6 +55,8 @@ set pastetoggle=<F3>
 map <F4> :set nonumber!<CR>
 map <F9> :au! TextChanged,TextChangedI <buffer> write<CR>
 map <F10> :au! TextChanged,TextChangedI <buffer><CR>
+map <leader><F9> :au! BufWritePost <buffer> silent! Black<CR>
+map <leader><F10> :au! BufWritePost <buffer><CR>
 map <script> <silent> <F11> :call ToggleQuickfixList()<CR>
 map <C-C> :q<CR>
 
