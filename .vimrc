@@ -76,7 +76,7 @@ function! PythonSetup()
     map <F8> Oimport ipdb; ipdb.set_trace()<ESC>:w<CR>
     map <F12> :Black<CR>:w<CR>
 
-    set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+    set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,async
     inoremap # X#
     autocmd BufWritePre <buffer> call Trim()
     set foldmethod=indent
