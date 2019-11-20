@@ -84,6 +84,13 @@ endfunction
 
 autocmd FileType python call PythonSetup()
 
+function! SqlSetup()
+    " Requires brew install sqlparse
+    map <F5> :%!sqlformat --reindent --keywords upper --identifiers lower -<CR>
+endfunction
+
+autocmd FileType sql call SqlSetup()
+
 " previously term=standout ctermfg=4 ctermbg=7 guifg=DarkBlue guibg=LightGrey
 hi Folded ctermfg=none ctermbg=none
 
