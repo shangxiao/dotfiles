@@ -84,6 +84,9 @@ function! PythonSetup()
     map <F7> :call Pymodule()<CR>
     map <F8> Oimport ipdb; ipdb.set_trace()<ESC>:w<CR>
     map <F12> :Black<CR>:w<CR>
+    map <leader><F9> :au! BufWritePost <buffer> silent! Black<CR>
+    map <leader><F10> :au! BufWritePost <buffer><CR>
+    map <leader>i :ImportName<CR> "requires https://github.com/mgedmin/python-imports.vim
 
     set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with,async
     inoremap # X#
