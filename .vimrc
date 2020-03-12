@@ -60,6 +60,14 @@ map <leader><F9> :au! BufWritePost <buffer> silent! Black<CR>
 map <leader><F10> :au! BufWritePost <buffer><CR>
 map <script> <silent> <F11> :call ToggleQuickfixList()<CR>
 map <C-C> :q<CR>
+map <leader>t :tabe<CR>
+map <leader>y "*y
+map <leader>g :grep -rw <cword> *<CR>
+map <leader>G :grep -r
+map <leader>s <esc>:w<CR>
+map <leader>f :FZF<CR>
+map <leader>/ r✓
+map <leader>x r✗
 
 nnoremap <space> za
 vnoremap <space> zf
