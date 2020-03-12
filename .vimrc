@@ -79,7 +79,7 @@ nnoremap <esc>^[ <esc>^[
 
 function! PythonSetup() 
     map <F5> :%!isort -<CR>:w<CR>
-    map <F6> :Shell flake8 %<CR>
+    "map <F6> :Shell flake8 %<CR>
     "map <F7> :Shell ./manage.py test %<CR>
     map <F7> :call Pymodule()<CR>
     map <F8> Oimport ipdb; ipdb.set_trace()<ESC>:w<CR>
