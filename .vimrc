@@ -27,6 +27,7 @@ set mouse=a
 set backspace=2
 set nf=alpha
 set belloff=esc
+set cursorline
 
 " nice default, as this works well for a lot of things: python, json ...
 set foldmethod=indent
