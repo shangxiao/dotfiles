@@ -73,10 +73,9 @@ map <leader>x r✗
 nnoremap <space> za
 vnoremap <space> zf
 
-" The second line to make arrow keys still work
-" http://stackoverflow.com/a/1037182/739106
-nnoremap <esc> :noh<return><esc>
-nnoremap <esc>^[ <esc>^[
+" Use CR in preference to ESC to avoid interference with escaping to command mode
+" https://stackoverflow.com/a/662914/739106
+nnoremap <cr> :noh<return><cr>
 
 function! PythonSetup() 
     map <F5> :%!isort -<CR>:w<CR>
