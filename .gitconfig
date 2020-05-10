@@ -28,6 +28,7 @@
     forcepush = push --force-with-lease
     # display git log in a nice hierarchy - from Khoa
     tree = log --graph --decorate --pretty=medium --abbrev-commit --all
+    rb = rebase
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
