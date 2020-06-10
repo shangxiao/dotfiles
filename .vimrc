@@ -39,6 +39,9 @@ autocmd Filetype javascript setlocal sw=2 ts=2 sts=2
 autocmd Filetype coffee setlocal sw=2 ts=2 sts=2
 autocmd Filetype html setlocal sw=1 ts=1 sts=1
 
+autocmd! BufRead *.nc setfiletype netcdf
+autocmd! Filetype netcdf silent :%!ncdump %
+
 autocmd Filetype javascript setlocal makeprg=npx\ eslint\ --format\ unix
 autocmd Filetype python setlocal makeprg=flake8
 autocmd QuickFixCmdPost [^l]* cwindow
