@@ -23,7 +23,9 @@ set bg=light
 set so=5
 set number
 set nowrap
-set mouse=a
+" This can be annoying when typing on the laptop as bumping the trackpad accidentally can shift the cursor, so leave out "i" (insert mode)
+" set mouse=a
+set mouse=nvc
 set backspace=2
 set nf=alpha
 set belloff=esc
