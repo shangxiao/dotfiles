@@ -29,7 +29,12 @@ set mouse=nvc
 set backspace=2
 set nf=alpha
 set belloff=esc
-set cursorline  " useful for terminals that don't have a cursor line like putty
+" This can slow rendering down but is useful for terminals that don't have a cursor 
+" line like putty, but also keeps the line highlighted across splits which iterm can't do.
+set cursorline
+" List of colours available from: https://jonasjacek.github.io/colors/
+highlight cursorline cterm=bold ctermbg=238
+
 
 " nice default, as this works well for a lot of things: python, json ...
 set foldmethod=indent
