@@ -6,6 +6,7 @@
     ui = auto
 [alias]
     st = status
+    stu = status --untracked=no
     ci = commit
     co = checkout
     di = diff
@@ -28,7 +29,9 @@
     forcepush = push --force-with-lease
     # display git log in a nice hierarchy - from Khoa
     tree = log --graph --decorate --pretty=medium --abbrev-commit --all
+    graph = log --graph --oneline
     rb = rebase
+    ll = log --oneline
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
