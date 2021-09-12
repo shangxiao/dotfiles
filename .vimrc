@@ -40,7 +40,8 @@ highlight cursorline cterm=bold ctermbg=238
 set foldmethod=indent
 set foldlevel=99
 
-set tags=./tags;$HOME
+" tags (without the ./) seems to be required to be first in order to use tags when viewing symlinked files
+set tags=tags;./tags;$HOME
 
 autocmd Filetype javascript setlocal sw=2 ts=2 sts=2
 autocmd Filetype coffee setlocal sw=2 ts=2 sts=2
