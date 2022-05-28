@@ -27,6 +27,7 @@
     br = branch
     pr = pull --rebase
     forcepush = push --force-with-lease
+    fixpush = !git fix && git forcepush
     # display git log in a nice hierarchy - from Khoa
     tree = log --graph --decorate --pretty=medium --abbrev-commit --all
     graph = log --graph --oneline
