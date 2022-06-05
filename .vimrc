@@ -84,6 +84,19 @@ map <leader>x r✗
 nnoremap <space> za
 vnoremap <space> zf
 
+" Go to tab by number
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+
 " Use CR in preference to ESC to avoid interference with escaping to command mode
 " https://stackoverflow.com/a/662914/739106
 nnoremap <cr> :noh<return><cr>
