@@ -1,1 +1,2 @@
 alias kk import os; os.system('kill -9 %d' % os.getpid())
+context 10
