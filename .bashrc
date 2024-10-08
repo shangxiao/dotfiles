@@ -30,6 +30,14 @@ alias make="make -j"
 alias t="tig"
 alias psql="PAGER='less -X' psql"
 
+grep() { 
+    if [ -t 1 ] && [ -t 0 ]; then 
+        command grep -n "$@"
+    else 
+        command grep "$@"
+    fi
+}
+
 function watch() {
     fswatch --exclude .pytest_cache . | xargs -n1 -I \{\} sh -c "clear ;  $* ;"
 }
